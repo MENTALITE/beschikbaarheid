@@ -10,19 +10,14 @@ td{border:1px solid #f4f4f4;padding:3px;font-size:11px}
 <body>
 <div class="rw">
 <?php 
- 
-  // ------------------------------------ 
- 
-  /* +------------------------------------------+
-     |            Show text calendar            |
-     +------------------------------------------+ */
+
   function showmonth($month, $year) {
    
-    $first_day = mktime(0,0,0,$month, 1, $year);  // Here we generate the first day of the month
-    $title = date('F', $first_day);               // This gets us the month name 
-    $day_of_week = date('D', $first_day);         // day of week for 1st day of month
+    $first_day = mktime(0,0,0,$month, 1, $year);
+    $title = date('F', $first_day); 
+    $day_of_week = date('D', $first_day);
    
-    switch($day_of_week) {                        // blank days before months first day
+    switch($day_of_week) { 
         case "Mon": $blankdays = 0; break; 
         case "Tue": $blankdays = 1; break; 
         case "Wed": $blankdays = 2; break; 
@@ -33,7 +28,7 @@ td{border:1px solid #f4f4f4;padding:3px;font-size:11px}
         
     }
    
-    $days_in_month = cal_days_in_month(0, $month, $year); // days in the month
+    $days_in_month = cal_days_in_month(0, $month, $year);
    
     echo "<table>";
     echo "<tr><th colspan=7> $title $year </th></tr>";
@@ -53,16 +48,16 @@ td{border:1px solid #f4f4f4;padding:3px;font-size:11px}
     $blank_cnt =  $blankdays;  
     echo "<tr>";
  
-    while ( $blank_cnt > 0 )                     // blank day table cells
+    while ( $blank_cnt > 0 )
     { 
         echo "<td></td>"; 
         $blank_cnt--; 
         $day_count++;
     }
    
-    $day_num = 1;                                // day number
-    $cnt = $blankdays;                           // skip blank days in first week
-	while ( $day_num <= $days_in_month ) {       // count days until done
+    $day_num = 1;
+    $cnt = $blankdays;
+	while ( $day_num <= $days_in_month ) { 
       if ($cnt==7) {$cnt = 0;};
       while ($cnt < 7) {
         $dtm = strtotime($day_num.'-'.$month.'-'.$year);
@@ -78,20 +73,19 @@ td{border:1px solid #f4f4f4;padding:3px;font-size:11px}
       }
     }
  
-    while ( $cnt > 1 && $cnt <=6 ) {            // continue with $cnt for end of month blank days
+    while ( $cnt > 1 && $cnt <=6 ) { 
         echo "<td></td>";
         $cnt++;
     }
    
     echo "</tr></table>";
    
-  } // end of function 
+  } 
  
 	echo '<div style="display:inline;float:left;width:30%">';
 	showmonth('10','2015');
     echo '</div><div style="display:inline;float:left;width:30%">';
 	showmonth('11','2015');
-	//echo '</div>';
 	echo '</div><div style="display:inline;float:left;width:30%">';
 	showmonth('12','2015');
 	echo '</div>';
