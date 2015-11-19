@@ -2,7 +2,7 @@
 <head>
 <style>
 body{font-size:12px}
-p,span,td,table,div,input{font-family:Calibri,Ubunt,Helvetica,Arial,Sans}
+p,span,td,table,div,input{font-family:Calibri,Ubuntu,Helvetica,Arial,Verdana}
 td{border:1px solid #f4f4f4;padding:3px;font-size:11px}
 .rw{width:960px;margin:40px auto;}
 </style>
